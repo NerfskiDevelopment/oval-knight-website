@@ -1,6 +1,7 @@
 function LoadData(){
   const http = new XMLHttpRequest();
   const url = 'https://236f935f-8f97-4113-a394-ae28e91900a2.id.repl.co/TopTen';
+  
   http.open("GET", url);
   http.send();
 
@@ -17,7 +18,7 @@ function LoadData(){
         var lvl = object['lvl'];
         var placement = object['placement'];
 
-        inner += "<div id='listing'><h1>" + lvl + "</h1><h3>" + name + "</h3></div>"
+        inner += "<div id='listing'><h1 id='l'>&nbsp;#" + (i+1) + "</12>&nbsp;&nbsp;&nbsp;<h2>" + lvl + "</h2><h3>" + name + "</h3></div>"
       }
       
       document.getElementById("top10").innerHTML = inner;
