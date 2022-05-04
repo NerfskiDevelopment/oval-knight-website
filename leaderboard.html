@@ -13,20 +13,23 @@
 </head>
 
 <body>
-  <table>
-    <h1>Top 10 levels</h1>
-    <div id="top10" class="lbpanel">
+    <div>
+      <div class="lbpanel">
+        <h1>Top 10 levels</h1>
+        <div id="top10">
+        </div>
+      </div>
+      <div class="lbpanel">
+        <h1>Top Enemy Kills</h1>
+        <div id="tope">
+        </div>
+      </div>
     </div>
-  </table>
-  <table>
-    <h1>Top Enemy Kills</h1>
-    <div id="tope" class="lbpanel">
-    </div>
-  </table>
 
   <script src="script.js"></script>
   <script>
     LoadData();
+    LoadEKills();
   </script>
 
   <h3>Leaderboards are updated every 12 hours.</h1>

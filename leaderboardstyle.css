@@ -42,7 +42,8 @@ h1, h3, h4, h5, h6{
 
 .lbpanel{
   padding-right: 80px;
-  display:inline-block;
+  
+  float: left;
 }
 
 #listing{
