@@ -1,0 +1,16 @@
+{
+"companyName": "Cyros Stuff",
+"productName": "Oval Knight",
+"productVersion": "1.06",
+"dataUrl": "Public_1.06.data.unityweb",
+"wasmCodeUrl": "Public_1.06.wasm.code.unityweb",
+"wasmFrameworkUrl": "Public_1.06.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#000000",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.8f1"
+}
