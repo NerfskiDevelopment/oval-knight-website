@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="eco_style.css" rel="stylesheet" type="text/css" />
+   
+</head>
+
+<body>
+ 
+  <script>
+  google.charts.load('current',{packages:['corechart']});
+  google.charts.setOnLoadCallback(drawCharts);
+
+  var concurrentPlayerDates = [];
+  var concurrentPlayerValues = [];
+
+  var lvlDataValues = [];
+  var lvlDataDates = [];
+
+  var loginDataValues = [];
+  var loginDataDates = [];
+    
+  function drawCharts() {
+    FetchData();
+    //
+    //drawLineChart('moneyData', "Economy Data", "Date", "Money", totalMoneyDates, totalMoneyData, "Total Money");
+  }
+
+  function drawLineChart(elementId, title, xAxis, yAxis, xAxisData, yAxisData, lineName){
+    // Set Data
+    var data = new google.visualization.arrayToDataTable([['a', lineName], [new Date(xAxisData[0]), parseInt(yAxisData[0])]]);
+    var options = {
+      title: title,
+      hAxis: {title: xAxis},
+      vAxis: {title: yAxis}
+    };
+
+    //adding all the data
+    var _xAxisData = [];
+    var _xDataLength = xAxisData.length;
+    for(var i = 1; i < _xDataLength; i++){
+      var date = new Date(xAxisData[i]);
+      data.addRow([date, yAxisData[i]]);
+    }
+    
+    var chart = new google.visualization.LineChart(document.getElementById(elementId));
+    chart.draw(data, options);
+  }
+  </script>
+  
+  <div id="topnav">
+    <h1 id="w">Oval Knight Economy Data</h1>
+  </div>
+  
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+
+  <!--
+  <ul>
+    <li><a href="/test.html">Test</a></li>
+    <li><a href="/test.html">Test2</a></li>
+  </ul>
+  -->
+  
+  <div class="Dashboard_Statistics">
+    <!--background-color: #f1f1f1;-->
+    <center>
+      <ul><li><a class="btn1">Max Players | Toggle (on/off)</a></li></ul>
+      <div id="wb" class="centerPanel pnl1">
+       <div id="maxPlayers" style="width:100%; max-width:1500px; height:600px;"></div>
+      </div>
+      <h3>&nbsp;</h3>
+
+      <ul><li><a class="btn2">Level Data | Toggle (on/off)</a></li></ul>
+      <div id="wb" class="centerPanel pnl2">
+       <div id="lvlData" style="width:100%; max-width:1500px; height:600px;"></div>
+      </div>
+      
+      <h3>&nbsp;</h3>
+
+      <ul><li><a class="btn3">Login Data | Toggle (on/off)</a></li></ul>
+      <div id="wb" class="centerPanel pnl3">
+       <div id="loginData" style="width:100%; max-width:1500px; height:600px;"></div>
+      </div>
+      <h3>&nbsp;</h3>
+    </center>    
+  </div>
+  
+  <script>
+    var input1 = document.querySelector(".btn1");
+    input1.addEventListener("click", play, false);
+    input1.param = 'maxPlayers';
+    input1.param2 = 'pnl1';
+
+    var input2 = document.querySelector(".btn2");
+    input2.addEventListener("click", play, false);
+    input2.param = 'lvlData';
+    input2.param2 = 'pnl2';
+
+    var input3 = document.querySelector(".btn3");
+    input3.addEventListener("click", play, false);
+    input3.param = 'loginData';
+    input3.param2 = 'pnl3';
+
+    
+    
+
+    
+    function play(e) {
+      var idName = e.currentTarget.param;
+      var cName = e.currentTarget.param2;
+      
+      var x = document.getElementById(idName);
+      var open = false;
+      if (x.style.display === "none") {
+        open = true;
+      } else {
+        open = false;
+      }
+      
+      document.querySelector("." + cName).className = "centerPanel" + " " + cName;
+      window.requestAnimationFrame(function(time) {
+        window.requestAnimationFrame(function(time) {
+          var addon = "panelClose";
+          if(!open){
+            addon = "panelOpen";
+          }
+          
+          document.querySelector("." + cName).className = "centerPanel " + addon + " " + cName;
+          
+          if(!open){
+            setTimeout(() => {
+              x.style.display = "none";
+            }, 350);
+          }
+          else{
+            x.style.display = "block";
+          }
+          
+        });
+      });
+    }
+  </script>
+  
+  <script src="eco_script.js"></script>
+</body>
+
+</html>
